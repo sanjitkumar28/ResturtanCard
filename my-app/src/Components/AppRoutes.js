@@ -4,6 +4,7 @@ import About from "./About";
 import Contact from "./Contact";
 import ResturantMenu from "./ResturantMenu";
 import Cart from "./Cart";
+import ParentCart from "./ParentCart";
 
 const AppRoutes=()=>{
 return(

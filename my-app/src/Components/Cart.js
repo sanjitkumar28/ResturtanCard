@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const Cart = () => {
-  const { cart, addCart } = useContext(CartContext);
+  // const { cart, addCart } = useContext(CartContext);
   console.log("cart", cart);
   return cart.map((res) => (
     <Accordion key={res.card.info.id}>
