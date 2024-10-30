@@ -8,12 +8,19 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import axios from "axios";
 import { useContext } from "react";
 import CartContext from "./CartContext";
+import { useSelector, useDispatch } from "react-redux";
+import {addCart} from '../cartSlice'
 
 const ResturantMenu = () => {
   const { id } = useParams();
-  console.log('useParams',useParams());
+  const dispatch =useDispatch();
   const [resMenuData, setResMenuData] = useState([]);
-  const { cart, addCart}=useContext(CartContext);
+  // const { cart, addCart}=useContext(CartContext);
+
+  const addCartToMenu=(res)=>{
+  console.log('res',res);
+  dispatch(addCart(res))
+  }
   useEffect(() => {
     axios
       .get(
@@ -45,7 +52,7 @@ const ResturantMenu = () => {
         <AccordionDetails>
           <Typography style={{display:"flex", justifyContent:"space-between"}}>
              {res.card.info.description}
-             <button onClick={()=>addCart(res)}>Add To Cart</button>
+             <button onClick={()=>addCartToMenu(res)}>Add To Cart</button>
           </Typography>
         </AccordionDetails>
       </Accordion>

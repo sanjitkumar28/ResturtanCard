@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CartContext from "./CartContext";
+import {useSelector} from "react-redux";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -8,6 +9,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const Cart = () => {
   // const { cart, addCart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cartReducer.carts);
   console.log("cart", cart);
   return cart.map((res) => (
     <Accordion key={res.card.info.id}>
