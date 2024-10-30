@@ -14,7 +14,13 @@ export const CartSlice= createSlice({
           state.carts=[...state.carts,action.payload];
         },
         removeCart:(state,action)=>{
-         
+        console.log('action payload',action.payload);
+         state.carts= state.carts.filter((cart)=>{
+            console.log('rc',cart.card.info.id);
+            console.log('rc1',action.payload.card.info.id);
+            return cart.card.info.id!==action.payload.card.info.id
+        }
+        )
         }
     }
 })
